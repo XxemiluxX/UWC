@@ -310,6 +310,48 @@
             .gallery { grid-template-columns: 1fr; }
         }
       
+ body {
+      font-family: sans-serif;
+      padding: 2rem;
+      background: #f9f9f9;
+      color: #222;
+    }
+
+    .tabs {
+      display: flex;
+      border-bottom: 2px solid #ddd;
+    }
+
+    .tab-btn {
+      padding: 10px 24px;
+      font-size: 15px;
+      font-weight: 500;
+      border: none;
+      background: none;
+      cursor: pointer;
+      color: #888;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -2px;
+      transition: all 0.15s;
+    }
+
+    .tab-btn:hover { color: #333; }
+
+    .tab-btn.active {
+      color: #111;
+      border-bottom: 2px solid #111;
+    }
+
+    .tab-panel {
+      display: none;
+      padding: 1.5rem 0;
+      font-size: 15px;
+      line-height: 1.7;
+      color: #444;
+    }
+
+    .tab-panel.active { display: block; }
+
     </style>
 </head>
 <body>
@@ -350,6 +392,32 @@ I started focusing on Python and HTML programming this year, which will help me 
        
         </section>
 
+
+         <div class="tabs" role="tablist">
+    <button class="tab-btn active" onclick="switchTab(0)">Categoría 1</button>
+    <button class="tab-btn" onclick="switchTab(1)">Categoría 2</button>
+    <button class="tab-btn" onclick="switchTab(2)">Categoría 3</button>
+  </div>
+
+  <div class="tab-panel active">
+    <p>Contenido de la <strong>Categoría 1</strong>.</p>
+  </div>
+  <div class="tab-panel">
+    <p>Contenido de la <strong>Categoría 2</strong>.</p>
+  </div>
+  <div class="tab-panel">
+    <p>Contenido de la <strong>Categoría 3</strong>.</p>
+  </div>
+
+  <script>
+    const tabs = document.querySelectorAll('.tab-btn');
+    const panels = document.querySelectorAll('.tab-panel');
+
+    function switchTab(index) {
+      tabs.forEach((t, i) => t.classList.toggle('active', i === index));
+      panels.forEach((p, i) => p.classList.toggle('active', i === index));
+    }
+    </script>
         <section class="goals">
             <h2>Goals</h2>
             <p><strong>Short term:</strong>  I plan to finish this school year with excellent grades. I want to delve deeper into my story. I want to give a talk for Suicide Awareness Month, a topic that is rarely discussed.</p>
