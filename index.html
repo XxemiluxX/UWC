@@ -309,13 +309,6 @@
             h1 { font-size: 2.1rem; }
             .gallery { grid-template-columns: 1fr; }
         }
-      
- body {
-      font-family: sans-serif;
-      padding: 2rem;
-      background: #98dcf2;
-      color: #222;
-    }
 
     .tabs {
       display: flex;
@@ -394,7 +387,21 @@ I started focusing on Python and HTML programming this year, which will help me 
 
 
          <div class="tabs" role="tablist">
-    <button class="tab-btn active" onclick="switchTab(0)">Categoría 1</button>
+    <button class="tab-btn active" onclick="switchTab(0)">English Club</button>
+
+    <div class="content-left">
+        <h2>English Club</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+
+    
+    <div class="gallery-right">
+        <img src="foto1.jpg" alt="Estudiantes del English Club conversando" loading="lazy">
+        <img src="foto2.jpg" alt="Actividad grupal en el English Club" loading="lazy">
+        <img src="foto3.jpg" alt="Materiales de estudio de inglés" loading="lazy">
+    </div>
+
     <button class="tab-btn" onclick="switchTab(1)">Categoría 2</button>
     <button class="tab-btn" onclick="switchTab(2)">Categoría 3</button>
   </div>
