@@ -309,42 +309,70 @@
             h1 { font-size: 2.1rem; }
             .gallery { grid-template-columns: 1fr; }
         }
+.tabs {
+  display: flex;
+  border-bottom: 2px solid #9dd8ec;
+  margin-bottom: 15px;
+}
 
-    .tabs {
-      display: flex;
-      border-bottom: 2px solid #9dd8ec;
-    }
+.tab-btn {
+  position: relative;
+  padding: 12px 24px;
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: #777;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
 
-    .tab-btn {
-      padding: 10px 24px;
-      font-size: 15px;
-      font-weight: 500;
-      border: none;
-      background: none;
-      cursor: pointer;
-      color: #888;
-      border-bottom: 2px solid transparent;
-      margin-bottom: -2px;
-      transition: all 0.15s;
-    }
+.tab-btn:hover {
+  color: #007788;
+  background: rgba(0,119,136,0.05);
+}
 
-    .tab-btn:hover { color: #333; }
+.tab-btn::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0%;
+  height: 3px;
+  background: #007788;
+  transition: all 0.35s ease;
+  transform: translateX(-50%);
+}
 
-    .tab-btn.active {
-      color: #111;
-      border-bottom: 2px solid #111;
-    }
+.tab-btn.active {
+  color: #007788;
+}
 
-    .tab-panel {
-      display: none;
-      padding: 1.5rem 0;
-      font-size: 15px;
-      line-height: 1.7;
-      color: #444;
-    }
+.tab-btn.active::after {
+  width: 100%;
+}
+@keyframes slideFade {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
 
-    .tab-panel.active { display: block; }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
+.tab-panel {
+  display: none;
+  padding: 1.5rem 0;
+}
+
+.tab-panel.active {
+  display: block;
+  animation: slideFade .6s ease;
+}
 .contenedor-principal {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -431,10 +459,7 @@
   }
 }
 
-.columna-imagen{
-    flex: 1;
-    margin-left: 80px;
-}
+
     </style>
 </head>
 <body>
@@ -461,7 +486,7 @@
             <h2>Mis logros</h2>
             <ul>
                 <li><strong>Academicos: &nbsp;
-                 <p>He tenido siempre un buen desempeño académico desde la escuela, lo que me ha permitido adaptarme a desafios que he experimentado a lo largo de mi vida y gracias a eso obtuve la mejor calificación en sexto grado. &nbsp; Las materias en las que me desenvuelvo mejor son Inglés, Matemáticas, Estudios Sociales y Computación. </p>
+                 <p>He tenido siempre un buen desempeño académico desde la escuela, lo que me ha permitido adaptarme a desafios que he experimentado a lo largo de mi vida y gracias a eso obtuve la mejor calificación en sexto grado &nbsp; Las materias en las que me desenvuelvo mejor son Inglés, Matemáticas, Estudios Sociales y Computación. </p>
                 </strong> </li>
                 <li><strong>Participación: &nbsp;
                     <p>He participado durante muchos años en actividades de la institución como eventos cívicos, FEA, festival de inglés, feria vocacional o festivales de Navidad, generalmente cantando. &nbsp; También soy parte del Consejo Participativo de Palmichal, dando charlas y actividades a los estudiantes para convivir mejor juntos. </p>
@@ -475,23 +500,18 @@
        
         </section>
 
-<div>
-
-       
-    <button class="tab-btn" onclick="switchTab(0)">English Club</button>
-    <button class="tab-btn" onclick="switchTab(1)">My story "Pedazos de mi conciencia"</button>
-    <button class="tab-btn" onclick="switchTab(2)">Categoría 3</button>
-  </div>
 
   <div class="tab-panel active">
-   
+   <div class="tabs">
+  <button class="tab-btn">English Club</button>
+  <button class="tab-btn">My story "Pedazos de mi conciencia"</button>
+  <button class="tab-btn">Categoría 3</button>
+</div>
 
 <div class="contenedor-principal">
 
   <div class="galeria-imagenes">
-
     <img src="Fotos/IMG-20260527-WA0024.jpg" alt="Imagen Principal" class="img-grande">
-
     <img src="Fotos/IMG-20260527-WA0028.jpg" alt="Miniatura 1" class="img-chica">
     <img src="Fotos/IMG_20260529_115301.jpg" alt="Miniatura 2" class="img-chica">
   </div>
@@ -534,16 +554,35 @@
         Aqui puedes ver mi cuento
     </a>
 </div>
-    
+
+  </div>
 </section>
   </div>
 
   <div class="tab-panel">
     <p>Contenido de la <strong>Categoría 3</strong>.</p>
   </div>
+  <script>
+const tabs = document.querySelectorAll('.tab-btn');
+const panels = document.querySelectorAll('.tab-panel');
 
- 
-        <section class="goals">
+function switchTab(index) {
+
+  tabs.forEach(tab => tab.classList.remove("active"));
+  panels.forEach(panel => panel.classList.remove("active"));
+
+  tabs[index].classList.add("active");
+
+  setTimeout(() => {
+    panels[index].classList.add("active");
+  }, 50);
+}
+
+window.addEventListener("load", () => {
+  switchTab(0);
+});
+</script>
+     <section class="goals">
             <h2>Metas</h2>
             <p><strong>A corto plazo:</strong> Planeo terminar este año escolar con excelentes calificaciones. Quiero profundizar en mi historia ya que es algo muy especial para mi. Quiero dar una charla para el Mes de Concienciación sobre el Suicidio, un tema que rara vez se discute.</p>
             <p><strong>A largo plazo:</strong> Mi meta es graduarme de un buen colegio con un excelente promedio. Quiero continuar participando en actividades estudiantiles, especialmente cantando. Siempre he estado interesada en estudiar fuera del país, particularmente ingeniería de sistemas en una buena universidad. </p>
@@ -551,5 +590,5 @@
 
         <section class="uwc-motivation">
             <h2>Mi deseo por ser parte de UWC ✨</h2>
-            <p> Descubrí UWC a través de TikTok mientras buscaba oportunidades de estudiar en el extranjero, y también a través de María Paula Ureña, quien estaba en el Consejo Participativo Palmichal conmigo. <p/> <p>Llevo un año investigando UWC y me parece increíble la idea de estudiar en un lugar con gente de todo el mundo que se esfuerza por crear un cambio positivo. Me fascina cómo se desarrollan y aprenden unos de otros, al experimentar las culturas de tantos países diferentes, y cómo es una experiencia que cambia por completo tu perspectiva sobre cómo puedes conectar y apoyarte entre sí. <p/> <p>Sé que el proceso de selección será desafiante y requerirá dedicación, pero haré lo mejor que pueda de mí en cada aspecto, sin ocultar quién soy. </p>
+            <p> Descubrí UWC a través de TikTok mientras buscaba oportunidades de estudiar en el extranjero, y también a través de María Paula Ureña, quien estaba en el Consejo Participativo Palmichal conmigo. <p/> <p>Llevo un año investigando UWC y me parece increíble la idea de estudiar en un lugar con gente de todo el mundo que se esfuerza por crear un cambio positivo. Me fascina cómo se desarrollan y aprenden unos de otros, al experimentar las culturas de tantos países diferentes, y cómo es una experiencia que cambia por completo tu perspectiva sobre cómo puedes conectar y apoyarte entre sí. <p/> <p>Sé que el proceso de selección será desafiante y requerirá dedicación, pero haré lo mejor que pueda en cada aspecto, sin ocultar quién soy. </p>
       <html>
