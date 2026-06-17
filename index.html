@@ -1,13 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-   
     <title>Mi Biografía - Candidatura UWC</title>
     <style>
-      
-
-    :root {
+        :root {
             --primary: #007788;
             --primary-light: #e6f4f6;
             --secondary: #223344;
@@ -189,7 +186,6 @@
         .gallery-item {
             position: relative;
             border-radius: 12px;
-          
             box-shadow: 0 4px 12px rgba(0,0,0,0.08);
             height: 160px;
             cursor: pointer;
@@ -238,23 +234,13 @@
             background-color: var(--secondary);
         }
 
-       
-        
-       
-    
         @keyframes pulso {
-            0% {
-                box-shadow: 0 0 0 0 rgba(0, 123, 255, 0.7);
-            }
-            70% {
-                box-shadow: 0 0 0 15px rgba(0, 123, 255, 0);
-            }
-            100% {
-                box-shadow: 0 0 0 0 rgba(0, 123, 255, 0);
-            }
+            0% { box-shadow: 0 0 0 0 rgba(0, 123, 255, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(0, 123, 255, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 123, 255, 0); }
         }
 
-   .modal {
+        .modal {
             display: none;
             position: fixed;
             z-index: 999;
@@ -263,7 +249,6 @@
             width: 100%;
             height: 100%;
             background-color: rgba(34, 51, 68, 0.9);
-          
             align-items: center;
             opacity: 0;
             transition: opacity 0.3s ease;
@@ -309,281 +294,272 @@
             h1 { font-size: 2.1rem; }
             .gallery { grid-template-columns: 1fr; }
         }
-.tabs {
-  display: flex;
-  border-bottom: 2px solid #9dd8ec;
-  margin-bottom: 15px;
-}
 
-.tab-btn {
-  position: relative;
-  padding: 12px 24px;
-  font-size: 15px;
-  font-weight: 600;
-  border: none;
-  background: transparent;
-  cursor: pointer;
-  color: #777;
-  transition: all 0.3s ease;
-  overflow: hidden;
-}
+        .tabs {
+            display: flex;
+            border-bottom: 2px solid #9dd8ec;
+            margin-bottom: 15px;
+        }
 
-.tab-btn:hover {
-  color: #007788;
-  background: rgba(0,119,136,0.05);
-}
+        .tab-btn {
+            position: relative;
+            padding: 12px 24px;
+            font-size: 15px;
+            font-weight: 600;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            color: #777;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
 
-.tab-btn::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  width: 0%;
-  height: 3px;
-  background: #007788;
-  transition: all 0.35s ease;
-  transform: translateX(-50%);
-}
+        .tab-btn:hover {
+            color: #007788;
+            background: rgba(0,119,136,0.05);
+        }
 
-.tab-btn.active {
-  color: #007788;
-}
+        .tab-btn::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0%;
+            height: 3px;
+            background: #007788;
+            transition: all 0.35s ease;
+            transform: translateX(-50%);
+        }
 
-.tab-btn.active::after {
-  width: 100%;
-}
-@keyframes slideFade {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
+        .tab-btn.active {
+            color: #007788;
+        }
 
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+        .tab-btn.active::after {
+            width: 100%;
+        }
 
-.tab-panel {
-  display: none;
-  padding: 1.5rem 0;
-}
+        @keyframes slideFade {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
-.tab-panel.active {
-  display: block;
-  animation: slideFade .6s ease;
-}
-.contenedor-principal {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-}
+        .tab-panel {
+            display: none;
+        }
 
-.galeria-imagenes {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-}
+        .tab-panel.active {
+            display: block;
+            animation: slideFade .6s ease;
+        }
 
+        .contenedor-principal {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
 
-.img-grande {
-  grid-column: span 2;
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-}
+        .galeria-imagenes {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
 
+        .img-grande {
+            grid-column: span 2;
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
 
-.img-chica {
-  width: 100%;
-  height: 150px;
-  object-fit: cover;
-}
+        .img-chica {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
 
+        .bloque-informacion {
+            padding: 10px;
+        }
 
-.bloque-informacion {
-  padding: 10px;
-}
+        @media (max-width: 768px) {
+            .contenedor-principal {
+                grid-template-columns: 1fr; 
+            }
+        }
 
-@media (max-width: 768px) {
-  .contenedor-principal {
-    grid-template-columns: 1fr; 
-  }
-}
-.seccion-informativa {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 40px 20px;
-  font-family: sans-serif;
-}
+        .seccion-informativa {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            font-family: sans-serif;
+        }
 
-.titulo-seccion {
-  font-size: 2rem;
-  margin-bottom: 25px;
-  text-align: left; 
-}
+        .titulo-seccion {
+            font-size: 2rem;
+            margin-bottom: 25px;
+            text-align: left; 
+        }
 
-.contenido-flex {
-  display: flex;
-  gap: 40px;
-  align-items: center; 
-}
+        .contenido-flex {
+            display: flex;
+            gap: 40px;
+            align-items: center; 
+        }
 
-.columna-texto {
-  flex: 1;
+        .columna-texto {
+            flex: 1;
+        }
 
-.columna-texto p {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: #333;
-}
+        .columna-texto p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #333;
+        }
 
+        .columna-imagen {
+            flex: 1;
+        }
 
-.columna-imagen {
-  flex: 1; 
+        .columna-imagen img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+        }
 
-.columna-imagen img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 8px; 
-}
-
-@media (max-width: 768px) {
-  .contenido-flex {
-    flex-direction: column;
-    gap: 20px;
-  }
-}
-
-
+        @media (max-width: 768px) {
+            .contenido-flex {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
     </style>
 </head>
 <body>
 
     <div class="container">
-    
-    <header>
+        
+        <header>
             <div class="profile-img-container">
-               
                 <img src="Fotos/IMG_20251130_104835.jpg" alt="Foto de perfil" class="profile-img">
             </div>
             <h1>Yo soy Emiliano Monge Mora</h1>
-            <div class="subtitle">Aplicante del comite UWC Costa Rica</div>
+            <div class="subtitle">Aplicante del comité UWC Costa Rica</div>
         </header>
 
         <section class="profile">
-            <h2>Sobre mi! :D</h2>
-            <p> Hola, me llamo Emiliano. Nací el 29 de enero de 2011. He vivido toda mi vida en Palmichal de Acosta y actualmente estudio en el CTP de Palmichal. Siempre me ha gustado aprender cosas nuevas y me parece increíble cómo podemos superarnos descubriendo y realizando actividades que nos sacan de nuestra zona de confort.&nbsp;<p/>
-            <p> Siempre me ha encantado realizar diversas actividades, como cantar, pasear, leer, programar (como en esta página web :>) y jugar videojuegos. Una de las cosas que más disfruto es escuchar música. Mi artista favorita es Billie Eilish; su música me ha acompañado durante muchos años.
-            </p>
+            <h2>¡Sobre mí! :D</h2>
+            <p>Hola, me llamo Emiliano. Nací el 29 de enero de 2011. He vivido toda mi vida en Palmichal de Acosta y actualmente estudio en el CTP de Palmichal. Siempre me ha gustado aprender cosas nuevas y me parece increíble cómo podemos superarnos descubriendo y realizando actividades que nos sacan de nuestra zona de confort.</p>
+            <p>Siempre me ha encantado realizar diversas actividades, como cantar, pasear, leer, programar (como en esta página web :>) y jugar videojuegos. Una de las cosas que más disfruto es escuchar música. Mi artista favorita es Billie Eilish; su música me ha acompañado durante muchos años.</p>
         </section>
 
         <section class="achievements">
             <h2>Mis logros</h2>
             <ul>
-                <li><strong>Academicos: &nbsp;
-                 <p>He tenido siempre un buen desempeño académico desde la escuela, lo que me ha permitido adaptarme a desafios que he experimentado a lo largo de mi vida y gracias a eso obtuve la mejor calificación en sexto grado &nbsp; Las materias en las que me desenvuelvo mejor son Inglés, Matemáticas, Estudios Sociales y Computación. </p>
-                </strong> </li>
-                <li><strong>Participación: &nbsp;
-                    <p>He participado durante muchos años en actividades de la institución como eventos cívicos, FEA, festival de inglés, feria vocacional o festivales de Navidad, generalmente cantando. &nbsp; También soy parte del Consejo Participativo de Palmichal, dando charlas y actividades a los estudiantes para convivir mejor juntos. </p>
-                </strong></li>
-                <li><strong>Personal: &nbsp;
-                   <p>
-                En los últimos años he tenido varios proyectos personales, pero me gustaría hablarles de este año. Recientemente terminé un cuento para el FEA (Festival Estudiantil de las Artes), que es mi mejor trabajo hasta la fecha.
-                <p>Este año comencé a centrarme en la programación en Python y HTML, lo que me ayudará a lograr mayores cosas en el futuro. También he mejorado mi inglés escuchando música y viendo películas en inglés en mi tiempo libre.
-  </p>
+                <li><strong>Académicos:</strong> 
+                    <p>He tenido siempre un buen desempeño académico desde la escuela, lo que me ha permitido adaptarme a desafíos que he experimentado a lo largo de mi vida y gracias a eso obtuve la mejor calificación en sexto grado. Las materias en las que me desenvuelvo mejor son Inglés, Matemáticas, Estudios Sociales y Computación.</p>
                 </li>
-       
+                <li><strong>Participación:</strong> 
+                    <p>He participado durante muchos años en actividades de la institución como eventos cívicos, FEA, festival de inglés, feria vocacional o festivales de Navidad, generalmente cantando. También soy parte del Consejo Participativo de Palmichal, dando charlas y actividades a los estudiantes para convivir mejor juntos.</p>
+                </li>
+                <li><strong>Personal:</strong> 
+                    <p>En los últimos años he tenido varios proyectos personales, pero me gustaría hablarles de este año. Recientemente terminé un cuento para el FEA (Festival Estudiantil de las Artes), que es mi mejor trabajo hasta la fecha.</p>
+                    <p>Este año comencé a centrarme en la programación en Python y HTML, lo que me ayudará a lograr mayores cosas en el futuro. También he mejorado mi inglés escuchando música y viendo películas en inglés en mi tiempo libre.</p>
+                </li>
+            </ul>
         </section>
 
+        <div class="tabs">
+            <button class="tab-btn" onclick="switchTab(0)">English Club</button>
+            <button class="tab-btn" onclick="switchTab(1)">My story "Pedazos de mi conciencia"</button>
+            <button class="tab-btn" onclick="switchTab(2)">Categoría 3</button>
+        </div>
 
- <div class="tabs">
-  <button class="tab-btn" onclick="switchTab(0)">English Club</button>
-  <button class="tab-btn" onclick="switchTab(1)">My story "Pedazos de mi conciencia"</button>
-  <button class="tab-btn" onclick="switchTab(2)">Categoría 3</button>
-</div>
+        <div class="tab-panel">
+            <div class="contenedor-principal">
+                <div class="galeria-imagenes">
+                    <img src="Fotos/IMG-20260527-WA0024.jpg" alt="Imagen Principal" class="img-grande">
+                    <img src="Fotos/IMG-20260527-WA0028.jpg" alt="Miniatura 1" class="img-chica">
+                    <img src="Fotos/IMG_20260529_115301.jpg" alt="Miniatura 2" class="img-chica">
+                </div>
+                
+                <div class="bloque-informacion">
+                    <h2>English Club</h2>
+                    <p>Esta es una de las actividades en las que más he disfrutado participar. Hace tres años, con la ayuda de Jo (una voluntaria estadounidense del Cuerpo de Paz), se nos ocurrió la idea de crear un club de inglés. Es un espacio seguro donde practicamos nuestro inglés a través de actividades divertidas. A lo largo de la historia del club, hemos logrado realizar diversas actividades para que los estudiantes puedan mejorar su pronunciación y compartir momentos agradables.</p>
+                    <p>Soy parte de este proyecto porque quiero mejorar el inglés en el colegio y siento que esta fue una de las mejores e interesantes ideas que he tenido para contribuir educativamente al colegio como a los estudiantes.</p>
+                </div>
+            </div>
+        </div>
 
-<div class="contenedor-principal">
+        <div class="tab-panel">
+            <h2 class="titulo-seccion">Pedazos de mi conciencia</h2>
+            <div class="contenido-flex">
+                <div class="columna-texto">
+                    <p>Esta es la mejor historia que he escrito. Empecé este libro hace unos meses, cuando estaba pasando por un momento muy difícil en mi vida. Siento que escribir fue una forma de desestresarme y concentrarme en otras cosas.</p><p> Creo que poder expresar la tristeza o la ansiedad a través del arte es algo increíblemente bello y maravilloso que los seres humanos podemos hacer. También escribí este libro para presentarlo en la FEA, pero me gustó tanto que sin duda lo ampliaré y le añadiré más a la historia muy pronto. ¡Quién sabe, tal vez incluso lo publique internacionalmente algún día! Jaja.</p>
+                </div>
+                <div class="columna-imagen">
+                    <img src="Fotos/portada.jpg" alt="Descripción de la imagen">
+                    <a target="_blank"
+                       href="Pedazos de mi conciencia.pdf"
+                       download="Nombre-Archivo.pdf"
+                       style="display:block;
+                              width:max-content;
+                              margin:20px auto 0 auto;
+                              background-color:#add8e6;
+                              color:#1e3a4b;
+                              padding:12px 24px;
+                              font-size:1rem;
+                              font-weight:bold;
+                              text-decoration:none;
+                              border-radius:6px;
+                              font-family:sans-serif;">
+                        Aquí puedes ver mi cuento
+                    </a>
+                </div>
+            </div>
+        </div>
 
-  <div class="galeria-imagenes">
-    <img src="Fotos/IMG-20260527-WA0024.jpg" alt="Imagen Principal" class="img-grande">
-    <img src="Fotos/IMG-20260527-WA0028.jpg" alt="Miniatura 1" class="img-chica">
-    <img src="Fotos/IMG_20260529_115301.jpg" alt="Miniatura 2" class="img-chica">
-  </div>
+        <div class="tab-panel">
+            <p>Contenido de la <strong>Categoría 3</strong>.</p>
+        </div>
 
- 
-  <div class="bloque-informacion">
-    <h2>English Club</h2>
-    <p>Esta es una de las actividades en las que más he disfrutado participar. Hace tres años, con la ayuda de Jo (una voluntaria estadounidense del Cuerpo de Paz), se nos ocurrió la idea de crear un club de inglés. Es un espacio seguro donde practicamos nuestro inglés a través de actividades divertidas. A lo largo de la historia del club, hemos logrado realizar diversas actividades para que los estudiantes puedan mejorar su pronunciación y compartir momentos agradables.</p>
- <p> Soy parte de este proyecto porque quiero mejorar el inglés en el colegio y siento que esta fue una de las mejores e interesantes ideas que he tenido para contribuir educativamente al colegio como a los estudiantes.</p>
-</div>
-</div>
+        <script>
+            const tabs = document.querySelectorAll('.tab-btn');
+            const panels = document.querySelectorAll('.tab-panel');
 
-  </div>
-  <div class="tab-panel">
- 
-  <h2 class="titulo-seccion">Pedazos de mi conciencia</h2>
- 
-  <div class="contenido-flex">
-   
-    <div class="columna-texto">
-      <p>Esta es la mejor historia que he escrito. Empecé este libro hace unos meses, cuando estaba pasando por un momento muy difícil en mi vida. Siento que escribir fue una forma de desestresarme y concentrarme en otras cosas. Creo que poder expresar la tristeza o la ansiedad a través del arte es algo increíblemente bello y maravilloso que los seres humanos podemos hacer. También escribí este libro para presentarlo en la FEA, pero me gustó tanto que sin duda lo ampliaré y le añadiré más a la historia muy pronto. ¡Quién sabe, tal vez incluso lo publique internacionalmente algún día! Jaja.</p>
-    </div>
-<div class="columna-imagen">
-    <img src="Fotos/portada.jpg" alt="Descripción de la imagen">
+            function switchTab(index) {
+                tabs.forEach(tab => tab.classList.remove("active"));
+                panels.forEach(panel => panel.classList.remove("active"));
 
-    <a target="_blank"
-       href="Pedazos de mi conciencia.pdf"
-       download="Nombre-Archivo.pdf"
-       style="display:block;
-              width:max-content;
-              margin:20px auto 0 auto;
-              background-color:#add8e6;
-              color:#1e3a4b;
-              padding:12px 24px;
-              font-size:1rem;
-              font-weight:bold;
-              text-decoration:none;
-              border-radius:6px;
-              font-family:sans-serif;">
-        Aqui puedes ver mi cuento
-    </a>
-  </div>
+                tabs[index].classList.add("active");
 
-  <div class="tab-panel">
-    <p>Contenido de la <strong>Categoría 3</strong>.</p>
-  </div>
-  <script>
-const tabs = document.querySelectorAll('.tab-btn');
-const panels = document.querySelectorAll('.tab-panel');
+                setTimeout(() => {
+                    panels[index].classList.add("active");
+                }, 50);
+            }
 
-function switchTab(index) {
+            window.addEventListener("load", () => {
+                switchTab(0);
+            });
+        </script>
 
-  tabs.forEach(tab => tab.classList.remove("active"));
-  panels.forEach(panel => panel.classList.remove("active"));
-
-  tabs[index].classList.add("active");
-
-  setTimeout(() => {
-    panels[index].classList.add("active");
-  }, 50);
-}
-
-window.addEventListener("load", () => {
-  switchTab(0);
-});
-</script>
-     <section class="goals">
+        <section class="goals">
             <h2>Metas</h2>
-            <p><strong>A corto plazo:</strong> Planeo terminar este año escolar con excelentes calificaciones. Quiero profundizar en mi historia ya que es algo muy especial para mi. Quiero dar una charla para el Mes de Concienciación sobre el Suicidio, un tema que rara vez se discute.</p>
-            <p><strong>A largo plazo:</strong> Mi meta es graduarme de un buen colegio con un excelente promedio. Quiero continuar participando en actividades estudiantiles, especialmente cantando. Siempre he estado interesada en estudiar fuera del país, particularmente ingeniería de sistemas en una buena universidad. </p>
+            <p><strong>A corto plazo:</strong> Planeo terminar este año escolar con excelentes calificaciones. Quiero profundizar en mi historia ya que es algo muy especial para mí. Quiero dar una charla para el Mes de Concienciación sobre el Suicidio, un tema que rara vez se discute.</p>
+            <p><strong>A largo plazo:</strong> Mi meta es graduarme de un buen colegio con un excelente promedio. Quiero continuar participando en actividades estudiantiles, especialmente cantando. Siempre he estado interesada en estudiar fuera del país, particularmente ingeniería de sistemas en una buena universidad.</p>
         </section>
 
         <section class="uwc-motivation">
             <h2>Mi deseo por ser parte de UWC ✨</h2>
-            <p> Descubrí UWC a través de TikTok mientras buscaba oportunidades de estudiar en el extranjero, y también a través de María Paula Ureña, quien estaba en el Consejo Participativo Palmichal conmigo. <p/> <p>Llevo un año investigando UWC y me parece increíble la idea de estudiar en un lugar con gente de todo el mundo que se esfuerza por crear un cambio positivo. Me fascina cómo se desarrollan y aprenden unos de otros, al experimentar las culturas de tantos países diferentes, y cómo es una experiencia que cambia por completo tu perspectiva sobre cómo puedes conectar y apoyarte entre sí. <p/> <p>Sé que el proceso de selección será desafiante y requerirá dedicación, pero haré lo mejor que pueda en cada aspecto, sin ocultar quién soy. </p>
-      <html>
+            <p>Descubrí UWC a través de TikTok mientras buscaba oportunidades de estudiar en el extranjero, y también a través de María Paula Ureña, quien estaba en el Consejo Participativo Palmichal conmigo.</p>
+            <p>Llevo un año investigando UWC y me parece increíble la idea de estudiar en un lugar con gente de todo el mundo que se esfuerza por crear un cambio positivo. Me fascina cómo se desarrollan y aprenden unos de otros, al experimentar las culturas de tantos países diferentes, y cómo es una experiencia que cambia por completo tu perspectiva sobre cómo puedes conectar y apoyarte entre sí.</p>
+            <p>Sé que el proceso de selección será desafiante y requerirá dedicación, pero haré lo mejor que pueda en cada aspecto, sin ocultar quién soy.</p>
+        </section>
+        
+    </div>
+</body>
+</html>
