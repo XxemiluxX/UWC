@@ -413,17 +413,12 @@
   color: #333;
 }
 
+
 .columna-imagen {
-  
-  align-items: center;
-  display: flex;
-margin-left: 150px;
-flex-direction:column;
-}
+  flex: 1; 
 
-
-.columna-imagen img{
-  width: 200%;
+.columna-imagen img {
+  width: 100%;
   height: auto;
   display: block;
   border-radius: 8px; 
@@ -436,7 +431,10 @@ flex-direction:column;
   }
 }
 
-
+.columna-imagen{
+    flex: 1;
+    margin-left: 80px;
+}
     </style>
 </head>
 <body>
@@ -516,15 +514,27 @@ flex-direction:column;
     <div class="columna-texto">
       <p>Esta es la mejor historia que he escrito. Empecé este libro hace unos meses, cuando estaba pasando por un momento muy difícil en mi vida. Siento que escribir fue una forma de desestresarme y concentrarme en otras cosas. Creo que poder expresar la tristeza o la ansiedad a través del arte es algo increíblemente bello y maravilloso que los seres humanos podemos hacer. También escribí este libro para presentarlo en la FEA, pero me gustó tanto que sin duda lo ampliaré y le añadiré más a la historia muy pronto. ¡Quién sabe, tal vez incluso lo publique internacionalmente algún día! Jaja.</p>
     </div>
+<div class="columna-imagen">
+    <img src="Fotos/portada.jpg" alt="Descripción de la imagen">
 
-    <div class="columna-imagen">
-      <img src="Fotos/portada.jpg" alt="Descripción de la imagen">
-    </div>
-    <a target="_blank" href="Pedazos de mi conciencia.pdf" download="Nombre-Archivo.pdf" style= background-color: #add8e6; color: #1e3a4b; padding: 12px 25px; font-size: 1rem; font-weight: bold; text-decoration: none; border-radius: 8px; font-family: sans-serif;">
- Aqui puedes ver mi cuento
-</a>
-
-  </div>
+    <a target="_blank"
+       href="Pedazos de mi conciencia.pdf"
+       download="Nombre-Archivo.pdf"
+       style="display:block;
+              width:max-content;
+              margin:20px auto 0 auto;
+              background-color:#add8e6;
+              color:#1e3a4b;
+              padding:12px 24px;
+              font-size:1rem;
+              font-weight:bold;
+              text-decoration:none;
+              border-radius:6px;
+              font-family:sans-serif;">
+        Aqui puedes ver mi cuento
+    </a>
+</div>
+    
 </section>
   </div>
 
