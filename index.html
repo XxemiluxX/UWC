@@ -454,14 +454,14 @@
         <section class="profile">
             <h2>¡Sobre mí! :D</h2>
             <p>Hola, me llamo Emiliano. Nací el 29 de enero de 2011. He vivido toda mi vida en Palmichal de Acosta y actualmente estudio en el CTP de Palmichal. Siempre me ha gustado aprender cosas nuevas y me parece increíble cómo podemos superarnos descubriendo y realizando actividades que nos sacan de nuestra zona de confort.</p>
-            <p>Siempre me ha encantado realizar diversas actividades, como cantar, pasear, leer, programar (como en esta página web :>) y jugar videojuegos. Una de las cosas que más disfruto es escuchar música. Mi artista favorita es Billie Eilish; su música me ha acompañado durante muchos años.</p>
+            <p>Siempre me ha encantado realizar diversas actividades, como cantar, pasear, leer, programar (como en esta página web :>) y jugar videojuegos. Una de las cosas que más disfruto es escuchar música. Mi artista favorita es Billie Eilish; su música me ha acompañado durante muchos años y siempre llevo un pedazo de ella en mi corazon.</p>
         </section>
 
         <section class="achievements">
             <h2>Mis logros</h2>
             <ul>
                 <li><strong>Académicos:</strong> 
-                    <p>He tenido siempre un buen desempeño académico desde la escuela, lo que me ha permitido adaptarme a desafíos que he experimentado a lo largo de mi vida y gracias a eso obtuve la mejor calificación en sexto grado. Las materias en las que me desenvuelvo mejor son Inglés, Matemáticas, Estudios Sociales y Computación.</p>
+                    <p>He tenido siempre un buen desempeño académico desde la escuela, lo que me ha permitido adaptarme a desafíos que he experimentado a lo largo de mi vida y gracias a eso obtuve la mejor calificación en sexto grado. Las materias en las que me desenvuelvo mejor son Inglés, Matemáticas, Estudios Sociales, pero sobre todo mi preferida en todos los casos es Computación.</p>
                 </li>
                 <li><strong>Participación:</strong> 
                     <p>He participado durante muchos años en actividades de la institución como eventos cívicos, FEA, festival de inglés, feria vocacional o festivales de Navidad, generalmente cantando. También soy parte del Consejo Participativo de Palmichal, dando charlas y actividades a los estudiantes para convivir mejor juntos.</p>
@@ -476,7 +476,7 @@
         <div class="tabs">
             <button class="tab-btn" onclick="switchTab(0)">English Club</button>
             <button class="tab-btn" onclick="switchTab(1)">My story "Pedazos de mi conciencia"</button>
-            <button class="tab-btn" onclick="switchTab(2)">Categoría 3</button>
+            <button class="tab-btn" onclick="switchTab(2)">Recomendaciones</button>
         </div>
 
         <div class="tab-panel">
@@ -559,7 +559,268 @@
             <p>Llevo un año investigando UWC y me parece increíble la idea de estudiar en un lugar con gente de todo el mundo que se esfuerza por crear un cambio positivo. Me fascina cómo se desarrollan y aprenden unos de otros, al experimentar las culturas de tantos países diferentes, y cómo es una experiencia que cambia por completo tu perspectiva sobre cómo puedes conectar y apoyarte entre sí.</p>
             <p>Sé que el proceso de selección será desafiante y requerirá dedicación, pero haré lo mejor que pueda en cada aspecto, sin ocultar quién soy.</p>
         </section>
-        
+
+        <section class="minijuego-section" style="background: linear-gradient(135deg, #e6f4f6 0%, #cbe9ee 100%); border-radius: 20px; padding: 40px; margin-top: 40px; border: 2px solid #9dd8ec; box-shadow: 0 10px 25px rgba(0, 119, 136, 0.05);">
+            <h2 style="color: var(--primary); font-size: 2rem; margin-bottom: 10px; display: block; text-align: center;">¿Cuánto saben de mí? Esta trivia está hecha para seleccionadores de UWC :D</h2>
+            
+            <div id="quiz-inicio" style="text-align: center; padding: 20px 0;">
+                <p style="margin-bottom: 25px; color: var(--secondary); font-weight: 500; text-align: center;">
+                    ¡Llegaste al final! Demuestra tu atención bloqueando la información de la página y respondiendo estas 5 preguntas sobre mi biografía.
+                </p>
+                <button class="quiz-btn-nav btn-reintentar" style="font-size: 1.2rem; padding: 16px 40px;" onclick="bloquearYComenzar()"> Comenzar Trivia</button>
+            </div>
+
+            <div id="quiz-juego" style="display: none;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; font-weight: bold; color: var(--primary);">
+                    <span style="background: var(--white); padding: 4px 14px; border-radius: 50px; font-size: 0.85rem; border: 1px solid #9dd8ec; letter-spacing: 1px; text-transform: uppercase;">Trivia Personal</span>
+                    <span id="quiz-contador" style="font-size: 0.95rem;"></span>
+                </div>
+                <h3 id="quiz-pregunta" style="text-align: center; margin-bottom: 30px; color: var(--secondary); font-size: 1.3rem; min-height: 40px; font-weight: 700;"></h3>
+                <div class="quiz-grid" id="quiz-opciones"></div>
+                <p id="quiz-feedback" style="text-align: center; font-weight: bold; margin-top: 25px; height: 25px; font-size: 1.1rem;"></p>
+            </div>
+
+            <div id="quiz-resultados" style="display: none; text-align: center; padding: 20px 0;">
+                <h3 style="color: var(--secondary); font-size: 1.8rem; margin-bottom: 10px; font-weight: 800;">¡Resultados!</h3>
+                <p style="color: #4a5568; font-size: 1.1rem;">Tu puntuación final es:</p>
+                <div id="quiz-score" style="font-size: 4.5rem; font-weight: 900; color: var(--primary); margin: 15px 0; text-shadow: 2px 2px 0px rgba(255,255,255,0.8);">0 / 5</div>
+                <p id="quiz-mensaje-final" style="font-weight: 600; margin-bottom: 30px; color: var(--secondary);"></p>
+                
+                <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                    <button class="quiz-btn-nav btn-reintentar" onclick="reiniciarQuiz()"> Reintentar juego</button>
+                    <button class="quiz-btn-nav btn-inicio" onclick="desbloquearYRegresar()"> Volver al inicio</button>
+                </div>
+            </div>
+        </section>
+
+        <style>
+            .quiz-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+                gap: 16px;
+                margin-top: 15px;
+            }
+
+            .quiz-opcion-btn {
+                background-color: var(--white);
+                color: var(--secondary);
+                border: 2px solid #a6dce7;
+                padding: 16px 20px;
+                font-size: 1rem;
+                font-weight: 600;
+                border-radius: 14px;
+                cursor: pointer;
+                transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+                box-shadow: 0 4px 6px rgba(0, 119, 136, 0.02);
+                text-align: center;
+            }
+
+            .quiz-opcion-btn:hover:not(:disabled) {
+                background-color: #add8e6;
+                color: var(--primary);
+                border-color: var(--primary);
+                transform: translateY(-3px);
+                box-shadow: 0 6px 12px rgba(0, 119, 136, 0.1);
+            }
+
+            .quiz-btn-nav {
+                padding: 14px 28px;
+                font-size: 1rem;
+                font-weight: 700;
+                border-radius: 50px;
+                cursor: pointer;
+                border: none;
+                transition: all 0.3s ease;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            }
+
+            .btn-reintentar {
+                background-color: var(--primary);
+                color: var(--white);
+            }
+
+            .btn-reintentar:hover {
+                background-color: var(--secondary);
+                transform: translateY(-2px);
+            }
+
+            .btn-inicio {
+                background-color: var(--white);
+                color: var(--primary);
+                border: 2px solid var(--primary);
+            }
+
+            .btn-inicio:hover {
+                background-color: var(--primary-light);
+                transform: translateY(-2px);
+            }
+
+            .quiz-correcta {
+                background-color: #2ec4b6 !important;
+                color: white !important;
+                border-color: #2ec4b6 !important;
+                box-shadow: 0 4px 12px rgba(46, 196, 182, 0.3) !important;
+            }
+
+            .quiz-incorrecta {
+                background-color: #e63946 !important;
+                color: white !important;
+                border-color: #e63946 !important;
+                box-shadow: 0 4px 12px rgba(230, 57, 70, 0.3) !important;
+            }
+        </style>
+
+        <script>
+            const preguntasFijas = [
+                {
+                    q: "¿Cuál es la actividad que más he hecho durante mi vida?",
+                    o: ["Dibujar", "Bailar", "Cantar", "Dramatizar"],
+                    c: "Cantar"
+                },
+                {
+                    q: "¿Cuál es el nombre del cuento que escribí?",
+                    o: ["Pedazos de mi conciencia", "Conciencia rota", "Pedazos del corazón", "Trozos de mi alma"],
+                    c: "Pedazos de mi conciencia"
+                },
+                {
+                    q: "¿Cuál es la cantante que más suelo escuchar?",
+                    o: ["Billie Eilish", "Lady Gaga", "Rihanna", "Karol G"],
+                    c: "Billie Eilish"
+                },
+                {
+                    q: "¿Cuál es mi materia preferida?",
+                    o: ["Ciencias", "Computación", "Biología", "Español"],
+                    c: "Computación"
+                },
+                {
+                    q: "¿Qué actividad recreativa creé?",
+                    o: ["English Club", "Club de libros", "Lecciones de arte", "Espacio de canto"],
+                    c: "English Club"
+                }
+            ];
+
+            let indexPregunta = 0;
+            let scoreQuiz = 0;
+
+            const panelInicio = document.getElementById('quiz-inicio');
+            const panelJuego = document.getElementById('quiz-juego');
+            const panelResultados = document.getElementById('quiz-resultados');
+
+          
+            const elementosAVisibilizar = document.querySelectorAll('.profile, .achievements, .tabs, .tab-panel, .goals, .uwc-motivation');
+
+            function mezclarOpciones(array) {
+                const copia = [...array];
+                for (let i = copia.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [copia[i], copia[j]] = [copia[j], copia[i]];
+                }
+                return copia;
+            }
+
+            function bloquearYComenzar() {
+                elementosAVisibilizar.forEach(el => el.style.display = 'none');
+                
+                panelInicio.style.display = 'none';
+                panelJuego.style.display = 'block';
+                
+                indexPregunta = 0;
+                scoreQuiz = 0;
+                cargarPreguntaFija();
+            }
+
+            function cargarPreguntaFija() {
+                document.getElementById('quiz-feedback').innerText = '';
+                const item = preguntasFijas[indexPregunta];
+                
+                document.getElementById('quiz-contador').innerText = `Pregunta ${indexPregunta + 1} de 5`;
+                document.getElementById('quiz-pregunta').innerText = item.q;
+
+                const contenedorOpciones = document.getElementById('quiz-opciones');
+                contenedorOpciones.innerHTML = '';
+
+                const opcionesMezcladas = mezclarOpciones(item.o);
+
+                opcionesMezcladas.forEach(opcion => {
+                    const btn = document.createElement('button');
+                    btn.className = 'quiz-opcion-btn';
+                    btn.innerText = opcion;
+                    btn.onclick = () => evaluarRespuestaFija(opcion, btn, item.c);
+                    contenedorOpciones.appendChild(btn);
+                });
+            }
+
+            function evaluarRespuestaFija(opcionSeleccionada, btnSeleccionado, respuestaCorrecta) {
+                const botones = document.getElementById('quiz-opciones').children;
+                const feedback = document.getElementById('quiz-feedback');
+
+                for (let btn of botones) {
+                    btn.disabled = true;
+                }
+
+                if (opcionSeleccionada === respuestaCorrecta) {
+                    btnSeleccionado.classList.add('quiz-correcta');
+                    feedback.innerText = "¡Correcto! ";
+                    feedback.style.color = "#2ec4b6";
+                    scoreQuiz++;
+                } else {
+                    btnSeleccionado.classList.add('quiz-incorrecta');
+                    feedback.innerText = "Incorrecto";
+                    feedback.style.color = "#e63946";
+
+                    for (let btn of botones) {
+                        if (btn.innerText === respuestaCorrecta) {
+                            btn.classList.add('quiz-correcta');
+                        }
+                    }
+                }
+
+                setTimeout(() => {
+                    indexPregunta++;
+                    if (indexPregunta < preguntasFijas.length) {
+                        cargarPreguntaFija();
+                    } else {
+                        finalizarQuizFijo();
+                    }
+                }, 1600);
+            }
+
+            function finalizarQuizFijo() {
+                panelJuego.style.display = 'none';
+                panelResultados.style.display = 'block';
+                document.getElementById('quiz-score').innerText = `${scoreQuiz} / 5`;
+
+                const mensajeFinal = document.getElementById('quiz-mensaje-final');
+                if (scoreQuiz === 5) {
+                    mensajeFinal.innerText = "¡Excelente! Me conoces a la perfección.";
+                } else if (scoreQuiz >= 3) {
+                    mensajeFinal.innerText = "¡Muy bien! Ya sé que me conoces un poco Jaja.";
+                } else {
+                    mensajeFinal.innerText = "~Puedes volver a habilitar la página e intentarlo otra vez~";
+                }
+            }
+
+            function reiniciarQuiz() {
+                panelResultados.style.display = 'none';
+                panelJuego.style.display = 'block';
+                indexPregunta = 0;
+                scoreQuiz = 0;
+                cargarPreguntaFija();
+            }
+
+            function desbloquearYRegresar() {
+                elementosAVisibilizar.forEach(el => el.style.display = '');
+                
+                if (typeof switchTab === "function") {
+                    switchTab(0);
+                }
+
+                panelResultados.style.display = 'none';
+                panelInicio.style.display = 'block';
+
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        </script>
     </div>
 </body>
 </html>
