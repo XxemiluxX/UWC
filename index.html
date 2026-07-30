@@ -57,6 +57,19 @@
             margin-bottom: 40px;
         }
 
+.uwc-quote{
+    margin-top: 12px;
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: rgba(0, 0, 0, 0.85);
+    font-style: italic;
+    letter-spacing: 0.5px;
+    text-align: center;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
         .profile-img-container {
             position: relative;
             width: 160px;
@@ -295,6 +308,8 @@
             .gallery { grid-template-columns: 1fr; }
         }
 
+
+
         .tabs {
             display: flex;
             border-bottom: 2px solid #9dd8ec;
@@ -417,7 +432,7 @@
         .columna-texto p {
             font-size: 1.1rem;
             line-height: 1.6;
-            color: #333;
+            color: #000000;
         }
 
         .columna-imagen {
@@ -437,6 +452,212 @@
                 gap: 20px;
             }
         }
+
+
+.audio-player{
+
+    width:100%;
+    max-width:750px;
+
+    margin:auto;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+}
+
+#playBtn{
+
+    width:48px;
+
+    height:48px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#46c0e5;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+    transition:.3s;
+
+    flex-shrink:0;
+
+}
+
+#playBtn:hover{
+
+    transform:scale(1.08);
+
+    background:#d4f4fd;
+
+}
+
+.player-content{
+
+    flex:1;
+
+}
+
+.progress-area{
+
+    width:100%;
+
+    height:6px;
+
+    background:#d3f1ff;
+
+    border-radius:20px;
+
+    cursor:pointer;
+
+    overflow:hidden;
+
+    margin-bottom:10px;
+
+}
+
+.progress-bar{
+
+    width:0%;
+
+    height:100%;
+
+    background:linear-gradient(90deg,#66e0ff,#fafcff);
+
+    position:relative;
+
+    border-radius:20px;
+
+}
+
+.progress-dot{
+
+    position:absolute;
+
+    right:-7px;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    width:14px;
+
+    height:14px;
+
+    border-radius:50%;
+
+    background:white;
+
+    border:3px solid #2563eb;
+
+}
+
+.time{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    color:#d4d4d4;
+
+    font-size:.82rem;
+
+}
+
+.audio-title{
+
+    margin-top:18px;
+
+    text-align:center;
+
+    color:#1b1b1b;
+
+    font-size:.95rem;
+
+    font-style:italic;
+
+}
+
+
+
+.frase-con-boton {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+
+
+
+.frase-con-boton p {
+    flex: 1;
+    margin: 0;
+}
+
+
+
+
+.boton-carta {
+    flex-shrink: 0;
+
+    display: inline-flex;
+    align-items: center;
+
+    padding: 8px 12px;
+
+    color: #8b6d54;
+
+    background: transparent;
+
+    border: 1px solid rgba(139, 109, 84, 0.45);
+
+    border-radius: 20px;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 0.65rem;
+
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+
+    text-decoration: none;
+
+    white-space: nowrap;
+
+    transition: 0.3s ease;
+}
+
+
+.boton-carta:hover {
+    color: white;
+
+    background-color: #9ff1ff;
+
+    transform: translateY(-2px);
+}
+
+
+/* PARA CELULAR */
+
+@media (max-width: 600px) {
+
+    .frase-con-boton {
+        flex-direction: column;
+    }
+
+}
+
+
     </style>
 </head>
 <body>
@@ -449,6 +670,10 @@
             </div>
             <h1>Yo soy Emiliano Monge Mora</h1>
             <div class="subtitle">Aplicante del comité UWC Costa Rica</div>
+        <p class="uwc-quote">
+    “No busco ser el mejor del mundo, sino dar lo mejor de mí para el mundo.”
+</p>
+           
         </header>
 
         <section class="profile">
@@ -524,7 +749,238 @@
         </div>
 
         <div class="tab-panel">
-            <p>Contenido de la <strong>Categoría 3</strong>.</p>
+
+
+
+           <div class="audio-player">
+
+<p class="audio-title">
+Mis agradecimientos a mis docentes y orientadora del C.T.P. de Palmichal.
+</p>
+
+    <audio id="audio">
+        <source src="audio/agradecimiento.mp3" type="audio/mpeg">
+    </audio>
+
+    <button id="playBtn">
+        <span id="icon">▶</span>
+    </button>
+
+    <div class="player-content">
+
+        <div class="progress-area" id="progressArea">
+
+            <div class="progress-bar" id="progressBar">
+                <span class="progress-dot"></span>
+            </div>
+
+        </div>
+
+        <div class="time">
+
+            <span id="current">0:00</span>
+
+            <span id="duration">0:00</span>
+<script>    
+
+const audio = document.getElementById("audio");
+
+const playBtn = document.getElementById("playBtn");
+
+const icon = document.getElementById("icon");
+
+const progressBar = document.getElementById("progressBar");
+
+const progressArea = document.getElementById("progressArea");
+
+const current = document.getElementById("current");
+
+const duration = document.getElementById("duration");
+
+playBtn.onclick = ()=>{
+
+    if(audio.paused){
+
+        audio.play();
+
+        icon.innerHTML="❚❚";
+
+    }else{
+
+        audio.pause();
+
+        icon.innerHTML="▶";
+
+    }
+
+}
+
+audio.addEventListener("loadedmetadata",()=>{
+
+    duration.innerHTML=format(audio.duration);
+
+});
+
+audio.addEventListener("timeupdate",()=>{
+
+    const percent=(audio.currentTime/audio.duration)*100;
+
+    progressBar.style.width=percent+"%";
+
+    current.innerHTML=format(audio.currentTime);
+
+});
+
+progressArea.addEventListener("click",(e)=>{
+
+    const width=progressArea.clientWidth;
+
+    const click=e.offsetX;
+
+    audio.currentTime=(click/width)*audio.duration;
+
+});
+
+audio.addEventListener("ended",()=>{
+
+    icon.innerHTML="▶";
+
+});
+
+function format(time){
+
+    let min=Math.floor(time/60);
+
+    let sec=Math.floor(time%60);
+
+    if(sec<10) sec="0"+sec;
+
+    return `${min}:${sec}`;
+
+}
+
+
+
+</script>
+        </div>
+
+    </div>
+
+</div><article class="carta"> 
+    
+    <div class="comilla-inicial">“</div> 
+    
+      <h3 class="nombre-profesor" style="color: #2007ff;">Gretel Quesada / Profesora de Ciencias</h3>
+     
+      <div class="separador"></div> 
+<div class="frase-con-boton"> 
+<p> “Es capaz de reconocer sus fortalezas y aquellos aspectos que necesita mejorar de forma 
+adecuada, con confianza y una actitud positiva.  Es puntual y responsable. Trabaja muy bien en clase, presenta tareas y tiene muy 
+buen rendimiento en las pruebas sumativas. ” </p> 
+    
+    <a href="cartas/Recomendacion.Grettel.pdf"
+     target="_blank" class="boton-carta" > Carta completa ↗ </a> 
+    </div> <div class="firma"> 
+        <span></span> 
+    </div> </article>
+
+ <div class="comilla-inicial">“</div> 
+    
+      <h3 class="nombre-profesor" style="color: #044ae2;">Jennifer Valverde / Profesora de Estudios Sociales y Civica</h3> 
+      <div class="separador"></div> 
+<div class="frase-con-boton"> 
+<p> “Sus intervenciones en clase reflejan pensamiento crítico, 
+capacidad de análisis y disposición para formular preguntas pertinentes que enriquecen el 
+aprendizaje tanto propio como el de sus compañeros. Considero que Emiliano reúne cualidades que van más allá del buen rendimiento 
+académico. ” </p> 
+    <div class="comilla-inicial">“</div> 
+    <a href="cartas/Recomendacion.Jeniffer.pdf"
+     target="_blank" class="boton-carta" > Carta completa ↗ </a> 
+    </div> <div class="firma"> 
+        <span></span> 
+    </div> </article>
+
+<div class="comilla-inicial">“</div> 
+
+   <h3 class="nombre-profesor" style="color: #0477e2;">Liza Guevara / Profesora de Ingles </h3> 
+      <div class="separador"></div> 
+<div class="frase-con-boton"> 
+<p> “Posee habilidades artísticas, especialmente en el 
+canto, las cuales comparte con entusiasmo cuando tiene la oportunidad de participar en 
+actividades culturales o institucionales. Respecto a la gestión de sus responsabilidades, es un estudiante puntual, organizado y 
+comprometido con la entrega oportuna de sus trabajos. ” </p> 
+    
+    <a href="cartas/Recomendacion.Liza.pdf"
+     target="_blank" class="boton-carta" > Carta completa ↗ </a> 
+    </div> <div class="firma"> 
+        <span></span> 
+    </div> </article>
+
+<div class="comilla-inicial">“</div> 
+
+   <h3 class="nombre-profesor" style="color: #049ce2;">Maria Fernanda Valverde/ Profesora de Ingles </h3> 
+      <div class="separador"></div> 
+<div class="frase-con-boton"> 
+<p> “A nivel social, el estudiante pertenece a grupos como el English Club institucional, en el cual ha trabajado 
+de la mano con voluntarios del Cuerpo de Paz. Además, aporta su tiempo en el Consejo 
+Participativo de Aserrí facilitando charlas y talleres a otros jóvenes en pro de la 
+conviviencia y las habilidades blandas. ” </p> 
+    
+    <a href="cartas/Recomendacion.Maria Fernanda.pdf"
+     target="_blank" class="boton-carta" > Carta completa ↗ </a> 
+    </div> <div class="firma"> 
+        <span></span> 
+    </div> </article>
+
+<div class="comilla-inicial">“</div> 
+
+   <h3 class="nombre-profesor" style="color: #04e2cf;">Juan Pablo Alvarado / Profesor de Matematicas</h3> 
+      <div class="separador"></div> 
+<div class="frase-con-boton"> 
+<p> “Durante todo este tiempo el joven se ha destacado mantener un muy buen desempeño 
+académico y actitudes de liderazgo. Acepta los desafíos como oportunidades de mejora y mantiene una 
+percepción realista de sus fortalezas. ” </p> 
+    
+    <a href="cartas/Recomendacion.Juan.pdf"
+     target="_blank" class="boton-carta" > Carta completa ↗ </a> 
+    </div> <div class="firma"> 
+        <span></span> 
+    </div> </article>
+
+<div class="comilla-inicial">“</div> 
+
+   <h3 class="nombre-profesor" style="color: #04e261;">Mariana Valverde / Profesora de Español</h3> 
+      <div class="separador"></div> 
+<div class="frase-con-boton"> 
+<p> “Se integra bien al trabajo en equipo y mantiene una relación cordial con sus 
+compañeros y docentes. Estas cualidades me hacen pensar que podrá adaptarse con facilidad a 
+nuevos entornos y convivir con personas de distintas culturas y formas de pensar, aprovechando 
+esa experiencia para seguir creciendo tanto en lo personal como en lo académico. ” </p> 
+    
+    <a href="cartas/Recomendacion.Mariana.pdf"
+     target="_blank" class="boton-carta" > Carta completa ↗ </a> 
+    </div> <div class="firma"> 
+        <span></span> 
+    </div> </article>
+
+<div class="comilla-inicial">“</div> 
+
+   <h3 class="nombre-profesor" style="color: #0b8001;">Paola / Orientadora del C.T.P. de Palmichal</h3> 
+      <div class="separador"></div> 
+<div class="frase-con-boton"> 
+<p> “Tiene una hermosa forma de tratar a los demás ya que demuestra mucha
+sensibilidad, no obstante, maneja muy bien sus emociones y toma decisiones muy
+acordes a su edad, aunque pareciera mostrar mayor madurez.
+Emiliano es un joven que merece se le brinde la oportunidad de crecer y dar lo mejor
+de sí en la institución que ustedes dirigen.” </p> 
+    
+    <a href="cartas/Recomendacion.Jeniffer.pdf"
+     target="_blank" class="boton-carta" > Carta completa ↗ </a> 
+    </div> <div class="firma"> 
+        <span></span> 
+    </div> </article>
+
+            
         </div>
 
         <script>
@@ -545,6 +1001,12 @@
             window.addEventListener("load", () => {
                 switchTab(0);
             });
+
+
+
+
+
+
         </script>
 
         <section class="goals">
@@ -691,9 +1153,23 @@
                     q: "¿Qué actividad recreativa creé?",
                     o: ["English Club", "Club de libros", "Lecciones de arte", "Espacio de canto"],
                     c: "English Club"
-                }
-            ];
+                },
+            
+                {
+                    q: "¿De que querida comunidad pertenezco?",
+                    o: ["Palmichal", "San Pedro", "Escazu", "Santa Ana"],
+                    c: "Palmichal"
+                },
 
+                {
+                    q: "(Bonus: Todas son correctas ;D) ¿Dare todo mi esmero y dedicación para lograr un cupo en UWC?",
+                    o: ["Obvio", "Por supuesto", "Sí", "Claro"],
+                    c: "Obvio" 
+                },
+
+
+
+];
             let indexPregunta = 0;
             let scoreQuiz = 0;
 
@@ -728,7 +1204,7 @@
                 document.getElementById('quiz-feedback').innerText = '';
                 const item = preguntasFijas[indexPregunta];
                 
-                document.getElementById('quiz-contador').innerText = `Pregunta ${indexPregunta + 1} de 4`;
+                document.getElementById('quiz-contador').innerText = `Pregunta ${indexPregunta + 1} de 6`;
                 document.getElementById('quiz-pregunta').innerText = item.q;
 
                 const contenedorOpciones = document.getElementById('quiz-opciones');
@@ -753,7 +1229,7 @@
                     btn.disabled = true;
                 }
 
-                if (opcionSeleccionada === respuestaCorrecta) {
+               if ( (respuestaCorrecta === "Obvio" && ["Obvio", "Por supuesto", "Sí", "Claro"].includes(opcionSeleccionada)) || opcionSeleccionada === respuestaCorrecta ) {
                     btnSeleccionado.classList.add('quiz-correcta');
                     feedback.innerText = "¡Correcto! ";
                     feedback.style.color = "#2ec4b6";
@@ -783,12 +1259,12 @@
             function finalizarQuizFijo() {
                 panelJuego.style.display = 'none';
                 panelResultados.style.display = 'block';
-                document.getElementById('quiz-score').innerText = `${scoreQuiz} / 4`;
+                document.getElementById('quiz-score').innerText = `${scoreQuiz} / 6`;
 
                 const mensajeFinal = document.getElementById('quiz-mensaje-final');
-                if (scoreQuiz === 4) {
+                if (scoreQuiz === 6) {
                     mensajeFinal.innerText = "Me alegro saber que como selecionador@ me conoces muy bien :D";
-                } else if (scoreQuiz >= 2) {
+                } else if (scoreQuiz >= 3) {
                     mensajeFinal.innerText = "¡Muy bien! Ya sé que me conoces un poco.";
                 } else {
                     mensajeFinal.innerText = "No te preocupes, puedes volver a habilitar la página e intentarlo otra vez~";
